@@ -101,8 +101,8 @@ public class NewFile extends Application {
         Stage stage = new Stage();
         stage.setTitle("Find and Replace");
         stage.setScene(new Scene(root1)); 
-        stage.show();
-        //findReplace(stage);
+        stage.showAndWait();
+        tfnewfile.setText(c.getText2());
         //((Node)(event.getSource())).getScene().getWindow().hide();
     }
     @FXML private javafx.scene.control.Button button;
