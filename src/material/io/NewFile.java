@@ -91,32 +91,19 @@ public class NewFile extends Application {
     @FXML private javafx.scene.control.TextField tfreplace;
     @FXML private javafx.scene.control.Label lbnotfound;
     @FXML
-    private void findRep(ActionEvent event) throws IOException
+    public void findRep(ActionEvent event) throws IOException
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FindRep.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("FindRep.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
+        FindRepController c = fxmlLoader.getController();
+        c.tffile.setText(tfnewfile.getText());
         Stage stage = new Stage();
         stage.setTitle("Find and Replace");
         stage.setScene(new Scene(root1)); 
         stage.show();
-        
         //findReplace(stage);
         //((Node)(event.getSource())).getScene().getWindow().hide();
-    }
-    @FXML
-    private void findReplace(ActionEvent event)
-    {
-        String find = tfind.getText();
-        String text = tfnewfile.getText();
-        if(text.indexOf(find) != 1)
-        {
-            String replace = tfreplace.getText();
-            
-        }
-        else
-        {
-            lbnotfound.setVisible(true);
-        }
     }
     @FXML private javafx.scene.control.Button button;
     @FXML

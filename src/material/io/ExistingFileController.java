@@ -86,25 +86,41 @@ public class ExistingFileController implements Initializable {
         Stage stage = (Stage) button.getScene().getWindow();
         stage.close();
     }
+    @FXML private javafx.scene.control.Button findbutton;
     @FXML
     public void findRep(ActionEvent event) throws IOException
     {
-        System.out.println(tfopenfile.getText());
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("FindRep.fxml"));
         Parent root1 = (Parent) fxmlLoader.load();
-        FindRepController c = new FindRepController();
-        c.text = "Hello World!";
+        FindRepController c = fxmlLoader.getController();
+        c.tffile.setText(tfopenfile.getText());
         Stage stage = new Stage();
         stage.setTitle("Find and Replace");
         stage.setScene(new Scene(root1)); 
-        stage.show();
-        //findReplace(stage);
+        stage.showAndWait();
+        tfopenfile.setText(c.getText2());
         //((Node)(event.getSource())).getScene().getWindow().hide();
+        
+        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("FindRep.fxml"));  
+        Stage stage = new Stage();
+        stage.initOwner(findbutton.getScene().getWindow());
+        FindRepController c = loader.getController();
+        c.tffile.setText(tfopenfile.getText());
+        stage.setScene(new Scene((Parent) loader.load()));
+        // showAndWait will block execution until the window closes...
+        stage.showAndWait();
+        FindRepController controller = loader.getController();
+        tfopenfile.setText(controller.getText());*/
     }
-   
+    @FXML
+    public void sett(String s)
+    {
+        tfopenfile.setText(s);
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         // TODO
     }    
     
