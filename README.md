@@ -12,10 +12,9 @@ Quark is a fast, flexible File Editor strictly following Google's Material Desig
 ```
 
 ### Built Using
-```
+
 * [JavaFX](http://www.oracle.com/technetwork/java/javafx/overview/index.html)
 * [JFeonix Material Design Library] (https://github.com/jfoenixadmin/JFoenix)
-```
 
 ### Dependencies
 ```
