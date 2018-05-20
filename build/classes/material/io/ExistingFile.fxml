@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222224;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="material.io.ExistingFileController">
+   <children>
+      <JFXTextArea fx:id="tfopenfile" focusColor="WHITE" labelFloat="true" layoutX="51.0" layoutY="29.0" prefHeight="295.0" prefWidth="482.0" promptText="Content" style="-fx-background-color: #ffffff;" unFocusColor="#42da8b" wrapText="true">
+         <effect>
+            <Glow />
+         </effect>
+      </JFXTextArea>
+      <JFXButton fx:id="savefile" buttonType="RAISED" layoutX="261.0" layoutY="343.0" onAction="#saveFile" style="-fx-background-color: #009347;" text="Save File" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+      </JFXButton>
+      <JFXButton fx:id="button" buttonType="RAISED" layoutX="403.0" layoutY="343.0" onAction="#handleButtonAction" ripplerFill="#fff7f7" style="-fx-background-color: #ee0707;" text="Cancel" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="findbutton" buttonType="RAISED" layoutX="126.0" layoutY="343.0" onAction="#findRep" ripplerFill="#f5f5f5" style="-fx-background-color: #283593;" text="Find" textFill="#fffafa">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

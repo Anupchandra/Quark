@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="material.io.FXMLDocumentController">
+   <children>
+      <JFXButton fx:id="createfile" buttonType="RAISED" layoutX="407.0" layoutY="106.0" onAction="#openNewFile" style="-fx-background-color: #0046ff;" text="Create File" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="openfile" buttonType="RAISED" layoutX="383.0" layoutY="185.0" onAction="#openExistingFile" ripplerFill="#f7f8fc" style="-fx-background-color: #009347;" text="Open Existing File" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="button" buttonType="RAISED" layoutX="430.0" layoutY="261.0" onAction="#handleButtonAction" ripplerFill="WHITE" style="-fx-background-color: #ee0707;" text="Exit" textFill="#f8f7f7">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="304.0" fitWidth="288.0" layoutX="63.0" layoutY="63.0">
+         <image>
+            <Image url="@../../Images/editor_document_file_edit_pen_pencil_2-512.png" />
+         </image>
+         <effect>
+            <Bloom />
+         </effect>
+      </ImageView>
+   </children>
+   <effect>
+      <Glow />
+   </effect>
+</AnchorPane>
