@@ -38,6 +38,7 @@ public class FindRepController implements Initializable {
     @FXML public javafx.scene.control.TextField tfind;
     @FXML public javafx.scene.control.TextField tfreplace;
     @FXML public javafx.scene.control.Label lbnotfound;
+    @FXML public javafx.scene.control.Label lblreplace;
     String text;
     public String getText2()
     {
@@ -57,6 +58,7 @@ public class FindRepController implements Initializable {
         }
         else
         {
+            lbnotfound.setVisible(false);
             Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -78,14 +80,22 @@ public class FindRepController implements Initializable {
             lbnotfound.setVisible(true);
         }
         else
-        {
-            Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                tffile.selectRange(match.start(),match.end());
-                tffile.replaceSelection(replace);
+        {   
+            if(replace.equals(""))
+            {
+                lblreplace.setVisible(true);
             }
-            });
+            else
+            {
+                lblreplace.setVisible(false);
+                Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    tffile.selectRange(match.start(),match.end());
+                    tffile.replaceSelection(replace);
+                }
+                });
+            }
         }
     }
     

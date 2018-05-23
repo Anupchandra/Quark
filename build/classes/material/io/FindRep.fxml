@@ -7,17 +7,18 @@
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="344.0" prefWidth="525.0" style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="material.io.FindRepController">
+<AnchorPane id="AnchorPane" prefHeight="344.0" prefWidth="525.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="material.io.FindRepController">
    <children>
-      <JFXTextField fx:id="tfind" focusColor="#f1f3f8" labelFloat="true" layoutX="44.0" layoutY="274.0" promptText="Find">
+      <JFXTextField fx:id="tfind" focusColor="#3f4040" labelFloat="true" layoutX="44.0" layoutY="274.0" promptText="Find" unFocusColor="#7c7575">
          <effect>
-            <Glow />
+            <Glow level="0.0" />
          </effect></JFXTextField>
-      <JFXTextField fx:id="tfreplace" focusColor="#f1f3f8" labelFloat="true" layoutX="251.0" layoutY="274.0" promptText="Replace" />
+      <JFXTextField fx:id="tfreplace" focusColor="#2c2c2c" labelFloat="true" layoutX="251.0" layoutY="274.0" promptText="Replace" unFocusColor="#7c7575" />
       <JFXButton fx:id="btfind" buttonType="RAISED" layoutX="92.0" layoutY="305.0" onAction="#Find" style="-fx-background-color: #283593;" text="Find" textFill="WHITE" />
       <JFXButton fx:id="btreplace" buttonType="RAISED" layoutX="290.0" layoutY="305.0" onAction="#Replace" style="-fx-background-color: #37474f;" text="Replace" textFill="#f8f8f8" />
-      <JFXTextArea fx:id="tffile" focusColor="#f0f2f5" labelFloat="true" layoutX="31.0" layoutY="20.0" prefHeight="220.0" prefWidth="464.0" promptText="Content" style="-fx-background-color: #ffffff;" />
-      <JFXButton fx:id="button" buttonType="RAISED" layoutX="427.0" layoutY="287.0" onAction="#handleButtonAction" style="-fx-background-color: #0D4D40;" text="Done" textFill="#f8f8f8" />
-      <Label fx:id="lbnotfound" layoutX="399.0" layoutY="257.0" text="No Matches Found" textFill="WHITE" visible="false" />
+      <JFXTextArea fx:id="tffile" focusColor="#3a3d40" labelFloat="true" layoutX="31.0" layoutY="25.0" prefHeight="220.0" prefWidth="464.0" promptText="Content" style="-fx-background-color: #ffffff;" unFocusColor="WHITE" />
+      <JFXButton fx:id="button" buttonType="RAISED" layoutX="427.0" layoutY="293.0" onAction="#handleButtonAction" style="-fx-background-color: #0D4D40;" text="Done" textFill="#f8f8f8" />
+      <Label fx:id="lbnotfound" layoutX="399.0" layoutY="266.0" text="No Matches Found" visible="false" />
+      <Label fx:id="lblreplace" layoutX="386.0" layoutY="245.0" text="Enter a valid replacement" visible="false" />
    </children>
 </AnchorPane>
