@@ -31,6 +31,7 @@ public class MaterialIO extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("Material IO.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("Quark");
+        stage.getIcons().add(new Image("Images/science.png"));
         stage.setScene(scene);
         stage.show();
     }
