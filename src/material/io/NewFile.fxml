@@ -8,7 +8,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="material.io.NewFile">
    <children>
-      <JFXTextArea fx:id="tfnewfile" focusColor="#3e3d43" labelFloat="true" layoutX="61.0" layoutY="31.0" prefHeight="295.0" prefWidth="479.0" promptText="Content" style="-fx-background-color: #FFFFFF;" unFocusColor="#b5b5b5" wrapText="true">
+      <JFXTextArea fx:id="tfnewfile" focusColor="#3e3d43" labelFloat="true" layoutX="22.0" layoutY="23.0" prefHeight="303.0" prefWidth="555.0" promptText="Content" style="-fx-background-color: #FFFFFF;" unFocusColor="#b5b5b5" wrapText="true">
          <effect>
             <Glow level="0.0" />
          </effect>

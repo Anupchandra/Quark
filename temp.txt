@@ -1,0 +1,21 @@
+1. Install ANSYS Products 17.0. Do not install ANSYS License Manager. When asked for license server name input "localhost" (without quotes)
+
+2. Copy folder "Shared Files" to <ANSYS progdir> (by default C:\Program Files\ANSYS Inc\) and overwrite original files
+
+   Note: if you install ANSYS Products 17.0 in not default folder ( C:\Program Files\ANSYS Inc\) you need to open in text editor file ..\Shared Files\Licensing\ansyslmd.ini and edit path to copied from crack license file
+   by default in ansyslmd.ini path is written as
+
+   C:\Program Files\ANSYS Inc\Shared Files\Licensing\license.dat
+
+3. Unzip the ICEPAK NETEX-G crack to <ANSYS progdir> (by default C:\Program Files\ANSYS Inc\) and overwrite original files
+   Create environment variable ARTWORK_LICENSE_FILE pointing to <ANSYS progdir>\ARTWORK_SSQ.dat (by default C:\Program Files\ANSYS Inc\ARTWORK_SSQ.dat)
+
+4. To run Dynamics for SpaceClaim in ANSYS SCDM embedded as a full standalone SPACECLAIM, rename the file <ANSYS progdir>\scdm\ansys120.ico (by default C:\Program Files\ANSYS Inc\scdm\ansys120.ico)
+   to _ansys12.ico. Copy the SPACECLM_SSQ.dat to <ANSYS progdir> (by default C:\Program Files\ANSYS Inc\).
+   Create environment variable SPACECLAIM_LICENSE_FILE pointing to <ANSYS progdir>\SPACECLM_SSQ.dat (by default C:\Program Files\ANSYS Inc\SPACECLM_SSQ.dat)
+
+5. Enjoy!
+
+
+
+Cracked by Team-SolidSQUAD (SSQ)

@@ -74,6 +74,31 @@ public class FXMLDocumentController implements Initializable {
         }
         //((Node)(event.getSource())).getScene().getWindow().hide();
     }
+        @FXML
+    private void openExistingFileCompressed(ActionEvent event) throws IOException
+    {
+        FileChooser fileChooser = new FileChooser();
+        Stage stage = (Stage) openfile.getScene().getWindow();
+            //Set extension filter for text files
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+        fileChooser.getExtensionFilters().add(extFilter);
+        //Show open file dialog
+        File file = fileChooser.showOpenDialog(stage);
+        if(file != null)
+        {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("ExistingFile.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            ExistingFileController c = fxmlLoader.getController();
+            c.tfopenfile.setText(c.readFileCompressed(file));
+            //c.sett("Hello");
+            Stage stage1 = new Stage();
+            stage1.setTitle("Edit Existing File");
+            stage1.setScene(new Scene(root1));
+            stage1.show();
+        }
+        //((Node)(event.getSource())).getScene().getWindow().hide();
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

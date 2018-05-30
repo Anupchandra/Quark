@@ -8,7 +8,9 @@ package material.io;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,6 +18,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.zip.DeflaterOutputStream;
+import java.util.zip.InflaterInputStream;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,6 +55,41 @@ public class ExistingFileController implements Initializable {
                 saveTextToFile(tfopenfile.getText(), file);
             }
     }
+    public void saveFileCompressed(ActionEvent event) throws IOException
+    {       
+            FileChooser fileChooser = new FileChooser();
+            Stage stage = (Stage) savefile.getScene().getWindow();
+            //Set extension filter for text files
+            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+            fileChooser.getExtensionFilters().add(extFilter);
+            //Show save file dialog
+            File file = fileChooser.showSaveDialog(stage);
+            if (file != null) {
+                saveTextToFileCompressed(tfopenfile.getText(), file);
+            }
+    }
+     private void saveTextToFileCompressed(String content, File file) {
+            try {
+            File temp = new File("temp.txt");
+            PrintWriter writer;
+            writer = new PrintWriter(temp);
+            writer.println(content);
+            writer.close();
+            FileInputStream fin=new FileInputStream(temp);
+            FileOutputStream fout=new FileOutputStream(file);  
+            DeflaterOutputStream out=new DeflaterOutputStream(fout);
+            int i;  
+            while((i=fin.read())!=-1){  
+            out.write((byte)i);  
+            out.flush();  
+            }
+            temp.delete();
+            fin.close();  
+            out.close();
+        } catch (IOException ex) {
+            Logger.getLogger(NewFile.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
      private void saveTextToFile(String content, File file) {
             try {
             PrintWriter writer;
@@ -61,7 +100,36 @@ public class ExistingFileController implements Initializable {
             Logger.getLogger(NewFile.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public String readFile(File file) throws IOException{
+    public String readFileCompressed(File file) throws IOException{
+        File temp = new File("temp.txt");
+        StringBuilder stringBuffer = new StringBuilder();
+        FileInputStream fin=new FileInputStream(file);  
+        InflaterInputStream in=new InflaterInputStream(fin);
+        FileOutputStream fout=new FileOutputStream(temp);
+        int i;  
+        while((i=in.read())!=-1){  
+        fout.write((byte)i);  
+        fout.flush();   
+        }
+        BufferedReader bufferedReader = null;
+        try {
+            bufferedReader = new BufferedReader(new FileReader(temp));
+            String text;
+            while ((text = bufferedReader.readLine()) != null) {
+                stringBuffer.append(text);
+                stringBuffer.append("\n");
+
+            }
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        temp.delete();
+        //bufferedReader.close();
+        return stringBuffer.toString();    
+    }
+        public String readFile(File file) throws IOException{
         StringBuilder stringBuffer = new StringBuilder();
         BufferedReader bufferedReader = null;
         try {
